@@ -24,7 +24,7 @@ loader = UnstructuredPDFLoader(document_path, mode="single", strategy="fast")
 doc = loader.load()
 
 # Splitter og lager en vectorstore av dokumentet
-text_splitter = RecursiveCharacterTextSplitter(chunk_size = 1000, chunk_overlap = 200)
+text_splitter = RecursiveCharacterTextSplitter(chunk_size = 500, chunk_overlap = 100)
 all_splits = text_splitter.split_documents(doc)
 vectorstore = Chroma.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
 
